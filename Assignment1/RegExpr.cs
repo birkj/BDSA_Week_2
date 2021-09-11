@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Assignment1
 {
@@ -10,9 +11,14 @@ namespace Assignment1
             throw new NotImplementedException();
         }
 
-        public static IEnumerable<(int width, int height)> Resolution(string resolutions)
+        public static IEnumerable<(int width, int height)> Resolution(IEnumerable<string> resolutions)
         {
-            throw new NotImplementedException();
+            string pattern = @"(?<width>\d+)x(?<height>\d+)";
+
+            foreach(string input in resolutions) {
+                Match m = Regex.Match(input, pattern);
+                yield return(int.Parse(m.Groups["width"].ToString()), int.Parse(m.Groups["height"].ToString()));
+            }
         }
 
         public static IEnumerable<string> InnerText(string html, string tag)
