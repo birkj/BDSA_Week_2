@@ -7,12 +7,12 @@ namespace Assignment1.Tests
     public class RegExprTests
     {
         [Fact]
-        public void Lines_With_One_Word() {
-
+        public void Lines_With_One_Word()
+        {
             // Arrange
-            var wordWithLowerCaseLetters = new List<string>(){"abjdnec"};
-            var wordWithUpperCaseLetters = new List<string>(){"AJCHJAD"};
-            var wordWithNumbers = new List<string>(){"048736"};
+            var wordWithLowerCaseLetters = new List<string>() { "abjdnec" };
+            var wordWithUpperCaseLetters = new List<string>() { "AJCHJAD" };
+            var wordWithNumbers = new List<string>() { "048736" };
 
             // Act 
             var lowerCaseResult = RegExpr.SplitLine(wordWithLowerCaseLetters);
@@ -26,19 +26,19 @@ namespace Assignment1.Tests
         }
 
         [Fact]
-        public void Lines_With_Multiple_Words() {
-
+        public void Lines_With_Multiple_Words()
+        {
             // Arrange
-            var lineWithSeveralWords = new List<string>(){"hello WORLD 1"};
-            var lineWithSeveralWordsMixedCases = new List<string>{"hE11O w0Rld 62 s7Hs"};
+            var lineWithSeveralWords = new List<string>() { "hello WORLD 1" };
+            var lineWithSeveralWordsMixedCases = new List<string> { "hE11O w0Rld 62 s7Hs" };
 
             // Act
             var lineWithSeveralWordsResult = RegExpr.SplitLine(lineWithSeveralWords);
             var lineWithSeveralWordsMixedCasesResult = RegExpr.SplitLine(lineWithSeveralWordsMixedCases);
 
             // Assert
-            Assert.Equal(new List<string>(){"hello", "WORLD", "1"}, lineWithSeveralWordsResult);
-            Assert.Equal(new List<string>(){"hE11O", "w0Rld", "62", "s7Hs"}, lineWithSeveralWordsMixedCasesResult);
+            Assert.Equal(new List<string>() { "hello", "WORLD", "1" }, lineWithSeveralWordsResult);
+            Assert.Equal(new List<string>() { "hE11O", "w0Rld", "62", "s7Hs" }, lineWithSeveralWordsMixedCasesResult);
         }
     }
 }
