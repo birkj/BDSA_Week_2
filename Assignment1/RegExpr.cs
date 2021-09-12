@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Assignment1
 {
@@ -11,8 +12,8 @@ namespace Assignment1
 
             foreach (string line in lines)
             {
-                var splitLine = line.Split(" ");
-                words.AddRange(splitLine);
+                var substrings = Regex.Split(line.Trim(), "\\s+");
+                words.AddRange(substrings);
             }
             return words;
         }
