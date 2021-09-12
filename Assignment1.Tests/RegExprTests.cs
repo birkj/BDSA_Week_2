@@ -40,5 +40,22 @@ namespace Assignment1.Tests
             Assert.Equal(new List<string>() { "hello", "WORLD", "1" }, lineWithSeveralWordsResult);
             Assert.Equal(new List<string>() { "hE11O", "w0Rld", "62", "s7Hs" }, lineWithSeveralWordsMixedCasesResult);
         }
+
+        [Fact]
+
+        public void Lines_With_Extra_Spaces()
+        {
+            // Arrange
+            var lineWithTrailingSpaces = new List<string>() { "  hello WORLD 1 " };
+            var lineWithExtraMiddleSpaces = new List<string> { "hE11O   w0Rld    62 s7Hs" };
+
+            // Act
+            var lineWithTrailingSpacesResult = RegExpr.SplitLine(lineWithTrailingSpaces);
+            var lineWithExtraMiddleSpacesResult = RegExpr.SplitLine(lineWithExtraMiddleSpaces);
+
+            // Assert
+            Assert.Equal(new List<string>() { "hello", "WORLD", "1" }, lineWithTrailingSpacesResult);
+            Assert.Equal(new List<string>() { "hE11O", "w0Rld", "62", "s7Hs" }, lineWithExtraMiddleSpacesResult);
+        }
     }
 }
