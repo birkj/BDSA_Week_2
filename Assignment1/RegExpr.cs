@@ -51,24 +51,6 @@ namespace Assignment1
             {
                 yield return Regex.Replace(html, pattern1, "").Trim();
             }
-
-
-
-
-
-
-
-            // MatchCollection matches = rx.Matches(tag);
-
-            // foreach (Match match in matches) 
-            // {
-            //     GroupCollection groups = match.Groups;
-            //     yield return groups["text"].ToString();
-            // }
-
-
-
-
         }
     }
 }

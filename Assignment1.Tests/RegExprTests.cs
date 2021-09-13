@@ -1,6 +1,4 @@
 using Xunit;
-using System;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 namespace Assignment1.Tests
@@ -74,8 +72,6 @@ namespace Assignment1.Tests
             Assert.Equal(new List<string>() { "hE11O", "w0Rld", "62", "s7Hs" }, lineWithExtraMiddleSpacesResult);
         }
 
-
-
         [Fact]
         public void regexOutputsInnerText()
         {
@@ -94,7 +90,6 @@ namespace Assignment1.Tests
             {
                 outputInList.Add(item);
             }
-
 
             //Assert
             Assert.Equal(expected, outputInList);
@@ -121,14 +116,8 @@ namespace Assignment1.Tests
                 outputInList.Add(item);
             }
 
-
             //Assert
             Assert.Equal(expected, outputInList);
-
-
         }
-
     }
-
-
 }
