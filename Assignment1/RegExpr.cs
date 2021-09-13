@@ -8,7 +8,14 @@ namespace Assignment1
     {
         public static IEnumerable<string> SplitLine(IEnumerable<string> lines)
         {
-            throw new NotImplementedException();
+            var words = new List<string>();
+
+            foreach (string line in lines)
+            {
+                var substrings = Regex.Split(line.Trim(), "\\s+");
+                words.AddRange(substrings);
+            }
+            return words;
         }
 
         public static IEnumerable<(int width, int height)> Resolution(IEnumerable<string> resolutions)
