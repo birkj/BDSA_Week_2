@@ -22,9 +22,10 @@ namespace Assignment1
         {
             string pattern = @"(?<width>\d+)x(?<height>\d+)";
 
-            foreach(string input in resolutions) {
+            foreach (string input in resolutions)
+            {
                 Match m = Regex.Match(input, pattern);
-                yield return(int.Parse(m.Groups["width"].ToString()), int.Parse(m.Groups["height"].ToString()));
+                yield return (int.Parse(m.Groups["width"].ToString()), int.Parse(m.Groups["height"].ToString()));
             }
         }
 

@@ -8,28 +8,22 @@ namespace Assignment1.Tests
     public class RegExprTests
     {
         [Fact]
+        public void regexOutput_matches_inputResolution()
+        {
 
-        public void regexOutput_matches_inputResolution() {
+            // Arrange
+            IEnumerable<string> resolutions = new List<string> { "1920x1080" };
 
-            //Arrange
-            IEnumerable<string> resolutions = new string[]{"1920x1080"};
+            IEnumerable<(int, int)> expected = new List<(int, int)> { (1024, 768), (800, 768), (640, 480), (320, 200), (320, 240), (800, 600), (1280, 960) };
 
-    
-            string expected = @"(1920, 1080)
-                    (1024, 768)
-                    (800, 600)
-                    (640, 480)
-                    (320, 200)
-                    (320, 240)
-                    (800, 600)
-                    (1280, 960)";
-
-            //Act
+            // Act
             var actualOutput = RegExpr.Resolution(resolutions);
 
-            //Assert
+            // Assert
             Assert.Equal(expected, actualOutput);
-          
+        }
+
+        [Fact]
         public void Lines_With_One_Word()
         {
             // Arrange
@@ -65,7 +59,6 @@ namespace Assignment1.Tests
         }
 
         [Fact]
-
         public void Lines_With_Extra_Spaces()
         {
             // Arrange
