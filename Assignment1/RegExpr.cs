@@ -13,7 +13,8 @@ namespace Assignment1
             foreach (string line in lines)
             {
                 var substrings = Regex.Split(line.Trim(), "\\s+");
-                foreach (string substring in substrings) {
+                foreach (string substring in substrings)
+                {
                     yield return substring;
                 }
             }
@@ -32,7 +33,42 @@ namespace Assignment1
 
         public static IEnumerable<string> InnerText(string html, string tag)
         {
-            throw new NotImplementedException();
+            // Regex rx = new Regex(@$"(?P<{tag}><[^b](?:\s|>)[^<>]+>(?P<text>[^<]+))");
+
+            string pattern0 = $@"(?<{tag}><[^b](?:\s|>)[^<>]+>(?<text>[^<]+))";
+            string pattern1 = @"(?<partTwo>(?<statTag>[<]{0,4}[>])|(?<endTag>[<\/].{0,4}[>]))";
+
+            if (Regex.IsMatch(html, pattern0))
+            {
+
+                foreach (Match m in Regex.Matches(html, pattern0))
+                {
+                    GroupCollection groups = m.Groups;
+                    yield return groups["text"].ToString();
+                }
+            }
+            else
+            {
+                yield return Regex.Replace(html, pattern1, "").Trim();
+            }
+
+
+
+
+
+
+
+            // MatchCollection matches = rx.Matches(tag);
+
+            // foreach (Match match in matches) 
+            // {
+            //     GroupCollection groups = match.Groups;
+            //     yield return groups["text"].ToString();
+            // }
+
+
+
+
         }
     }
 }
