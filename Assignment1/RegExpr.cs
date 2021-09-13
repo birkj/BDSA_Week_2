@@ -13,9 +13,10 @@ namespace Assignment1
             foreach (string line in lines)
             {
                 var substrings = Regex.Split(line.Trim(), "\\s+");
-                words.AddRange(substrings);
+                foreach (string substring in substrings) {
+                    yield return substring;
+                }
             }
-            return words;
         }
 
         public static IEnumerable<(int width, int height)> Resolution(IEnumerable<string> resolutions)
